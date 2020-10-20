@@ -90,6 +90,7 @@ const Bid = (props: Props) => {
                   >
                     {nft => (
                       <AcceptButton
+                        address={wallet!.address}
                         nft={nft}
                         bid={bid}
                         onClick={handleAccept}
@@ -119,7 +120,9 @@ const Bid = (props: Props) => {
           contractAddress={bid.contractAddress}
           tokenId={bid.tokenId}
         >
-          {nft => <WarningMessage nft={nft} bid={bid} />}
+          {nft => (
+            <WarningMessage address={wallet!.address} nft={nft} bid={bid} />
+          )}
         </NFTProvider>
       ) : null}
     </div>
